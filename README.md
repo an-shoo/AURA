@@ -1,12 +1,12 @@
 # AURA Engine: Adaptive Unison-Response Audio Engine
 
-AURA is not just a dynamic soundtrack system; it's a comprehensive framework for creating real-time, emotionally-aware generative and adaptive audio experiences. Developed for the Samsung GenAI Hackathon, AURA showcases how multi-modal inputs can transform a static piece of music into a living, breathing score that perfectly matches the on-screen action and the user's emotional state.
+AURA is not just a dynamic soundtrack system; it's a comprehensive framework for creating real-time, emotionally-aware generative and adaptive audio experiences. AURA showcases how multi-modal inputs can transform a static piece of music into a living, breathing score that perfectly matches the on-screen action and the user's emotional state.
 
 The project is demonstrated through two powerful, distinct pillars:
 1.  **A Standalone Pygame Engine** featuring advanced on-device adaptive and generative music algorithms.
 2.  **A Web-based SDK Framework** that uses multi-modal sensor data (face, voice, game state) to modulate music for web clients, illustrating a broader, extensible use case.
 
-The core purpose is to demonstrate a technology that could be integrated into Samsung devices, enabling applications to generate personalized soundtracks for user-generated content, such as vacation videos, by analyzing scene content and emotional cues.
+The core purpose is to demonstrate a technology that could be integrated into smart devices, enabling applications to generate personalized soundtracks for user-generated content, such as vacation videos, by analyzing scene content and emotional cues.
 
 ## 🌟 Core Concepts & Features
 
@@ -69,7 +69,7 @@ First, clone the project and install all required Python and Node.js packages.
 
 ```bash
 # Clone the repository
-git clone https://github.com/Samsung-Team-AURA/AURA
+git clone https://github.com/an-shoo/AURA
 cd AURA
 
 # Set up a Python virtual environment
@@ -175,11 +175,4 @@ The true power of AURA lies in its adaptability beyond gaming. The web SDK frame
 
 -   **Enhanced Brand Engagement:** The engine can be used to create adaptive audio for websites and digital marketing campaigns. The music could react to user scrolling, clicks, or time spent on a page, creating a more engaging and memorable brand interaction.
 
--   **A Core SDK for Next-Generation Devices:** The AURA engine is designed to be a foundational technology. It could be integrated as a core SDK on Samsung devices (mobiles, tablets, smart TVs), empowering a whole ecosystem of third-party applications to build their own unique, emotionally-aware experiences on the platform.
-
-## 🎬 Submissions
-
-Here you can find links to our project presentation and video demonstration for the hackathon.
-
--   **Presentation Slides:** https://drive.google.com/file/d/1oZ8Mbxv9V6qrmA7VMkRvia_kFNMb5hlH/view?usp=sharing
--   **Video Demonstration:** https://drive.google.com/file/d/1vHrRJB92z2Yp6zg6F3SslQs_WPMFGCWn/view?usp=sharing
+-   **A Core SDK for Next-Generation Devices:** The AURA engine is designed to be a foundational technology. It could be integrated as a core SDK on smart devices (mobiles, tablets, smart TVs), empowering a whole ecosystem of third-party applications to build their own unique, emotionally-aware experiences on the platform.
