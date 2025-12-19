@@ -1,0 +1,169 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content-wrapper {
+  flex-grow: 1;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+/* Header Component */
+.header {
+  padding: 1rem 1.5rem;
+  background-color: var(--background-dark);
+  border-bottom: 4px solid var(--primary-pink);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header h1.pixel-title {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.connection-status {
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+  padding: 0.5rem 1rem;
+  border: 2px solid;
+}
+
+.connection-status.connected {
+  color: var(--accent-cyan);
+  border-color: var(--accent-cyan);
+  text-shadow: 0 0 5px var(--accent-cyan);
+}
+
+.connection-status.disconnected {
+  color: var(--sun-orange);
+  border-color: var(--sun-orange);
+  text-shadow: 0 0 5px var(--sun-orange);
+}
+
+
+/* Dashboard Grid */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.grid-item {
+  min-height: 300px;
+}
+
+.grid-item.span-2 {
+  grid-column: span 2;
+}
+
+
+/* Generic Panel Styling */
+.panel-content {
+  margin-top: 1rem;
+}
+
+
+/* Emotion Graph */
+.recharts-wrapper {
+  font-family: var(--font-sans);
+}
+
+.recharts-text, .recharts-label {
+  fill: var(--text-secondary);
+  font-size: 0.8rem;
+}
+
+/* Player Feed */
+.player-feed-cam {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background-color: #000;
+  border: 2px solid var(--primary-purple);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-secondary);
+  font-family: var(--font-pixel);
+  font-size: 0.8rem;
+}
+
+.emotion-readout {
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+.emotion-readout span {
+  font-family: var(--font-pixel);
+  color: var(--accent-teal);
+  text-transform: uppercase;
+}
+
+/* Game State & Audience Panels */
+.metric-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  list-style-type: none;
+}
+.metric-item {
+  background-color: var(--background-card);
+  padding: 0.75rem;
+  border-left: 4px solid var(--primary-blue);
+}
+.metric-label {
+  display: block;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+}
+.metric-value {
+  font-family: var(--font-pixel);
+  font-size: 1.2rem;
+  color: var(--sun-yellow);
+}
+
+/* Adaptive audio controls */
+.aura-audio-controls {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.aura-audio-controls .pixel-button.small {
+  padding: 4px 10px;
+  font-size: 0.7rem;
+}
+
+.player-feed-cam img {
+  image-rendering: pixelated;
+  background: #111;
+}
+
+.audience-buttons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+/* DNA Visualizer */
+.dropzone {
+  border: 3px dashed var(--primary-purple);
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s;
+}
+.dropzone:hover {
+  border-color: var(--primary-pink);
+}
+
+.dna-info {
+  margin-top: 1.5rem;
+}

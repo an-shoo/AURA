@@ -1,0 +1,61 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./aura_backend
+    ports:
+      - "8000:8000"
+    volumes:
+      # Mount the music store so uploads persist outside the container
+      - ./aura_backend/music_dna_store:/app/music_dna_store
+    environment:
+      # This tells the backend how to construct public URLs for the frontend
+      - BACKEND_PUBLIC_BASE_URL=http://localhost:8000
+
+  frontend:
+    build:
+      context: ./aura_frontend
+    ports:
+      - "5173:5173"
+      - "3000:3000" # If you use another port for preview
+    volumes:
+      # Mount source code for live-reloading during development
+      - ./aura_frontend:/app
+      # Prevents host node_modules from overwriting container node_modules
+      - /app/node_modules
+    depends_on:
+      - backend
+
+  face-sensor:
+    build:
+      context: .
+      dockerfile: Dockerfile.sensors
+    command: ["python", "sensor_modules/face_emotion_sender.py"]
+    depends_on:
+      - backend
+    environment:
+      - AURA_BACKEND_WS_URL=ws://backend:8000/ws/sensors
+    # --- IMPORTANT: HARDWARE ACCESS ---
+    # This grants the container access to your webcam.
+    # On Linux, this is typically correct.
+    # On macOS/Windows, this may not work and requires specific
+    # configurations or might not be possible depending on your setup.
+    # devices:
+      # - "/dev/video0:/dev/video0"
+
+  speech-sensor:
+    build:
+      context: .
+      dockerfile: Dockerfile.sensors
+    command: ["python", "sensor_modules/speech_emotion_sender.py"]
+    depends_on:
+      - backend
+    environment:
+      - AURA_BACKEND_WS_URL=ws://backend:8000/ws/sensors
+    # --- IMPORTANT: HARDWARE ACCESS ---
+    # This grants the container access to your sound device (microphone).
+    # This is highly OS-dependent and may require tweaking.
+    # This example is for Linux with ALSA.
+    # devices:
+      # - "/dev/snd:/dev/snd"

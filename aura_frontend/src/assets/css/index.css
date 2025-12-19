@@ -1,0 +1,188 @@
+/* --- Neon Pixel Theme --- */
+:root {
+  /* Primary Colors */
+  --primary-pink: #FF3C88;
+  --primary-purple: #6E3DC7;
+  --primary-blue: #3B82F6;
+
+  /* Background Colors */
+  --background-deep: #140B2B;
+  --background-dark: #190C3F;
+  --background-card: #2A1B5C;
+
+  /* Accent Colors */
+  --accent-cyan: #36F0D1;
+  --accent-teal: #3BE0FF;
+  --sun-yellow: #F6C12B;
+  --sun-orange: #FF6B57;
+
+  /* Text Colors */
+  --text-primary: #FFF3FB;
+  --text-secondary: #C6BDE2;
+
+  /* Font Families */
+  --font-pixel: "Press Start 2P", monospace;
+  --font-sans: "Inter", sans-serif;
+}
+
+
+/* --- Global Styles --- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  background-color: var(--background-deep);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* --- Typography --- */
+.pixel-title {
+  font-family: var(--font-pixel);
+  text-shadow: 2px 2px 0 var(--primary-pink);
+  color: var(--text-primary);
+  letter-spacing: 1px;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-pixel);
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.2rem; color: var(--accent-cyan); text-shadow: 1px 1px 0 var(--primary-purple); }
+h3 { font-size: 0.9rem; color: var(--text-secondary); }
+
+
+/* --- Button System --- */
+.btn-pixel {
+  font-family: var(--font-pixel);
+  font-size: 0.7rem;
+  border: 3px solid;
+  padding: 10px 14px;
+  background: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-transform: uppercase;
+}
+
+.btn-pixel.primary {
+  background-color: var(--primary-pink);
+  border-color: var(--primary-pink);
+  color: var(--background-deep);
+  box-shadow: 4px 4px 0 var(--primary-purple);
+}
+
+.btn-pixel.primary:hover {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--primary-purple);
+}
+
+.btn-pixel.secondary {
+  background-color: transparent;
+  border-color: var(--primary-purple);
+  color: var(--text-primary);
+}
+.btn-pixel.secondary:hover {
+  background-color: var(--primary-purple);
+  color: var(--text-primary);
+  border-color: var(--primary-pink);
+}
+
+/* Small variant */
+.btn-pixel.small {
+  padding: 6px 10px;
+  font-size: 0.55rem;
+  box-shadow: 3px 3px 0 var(--primary-purple);
+}
+.btn-pixel.small:hover {
+  transform: translate(1px,1px);
+  box-shadow: 1px 1px 0 var(--primary-purple);
+}
+
+/* --- Form Controls (Select / Range) --- */
+.select-pixel {
+  font-family: var(--font-pixel);
+  font-size: 0.55rem;
+  background: var(--background-card);
+  color: var(--text-primary);
+  border: 3px solid var(--primary-purple);
+  padding: 6px 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 3px 3px 0 var(--primary-pink);
+  cursor: pointer;
+}
+.select-pixel:focus {
+  outline: none;
+  border-color: var(--primary-pink);
+  box-shadow: 3px 3px 0 var(--accent-cyan);
+}
+.select-pixel:hover {
+  background: var(--background-dark);
+}
+
+/* Range slider */
+input[type=range] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+input[type=range]:focus { outline: none; }
+input[type=range]::-webkit-slider-runnable-track {
+  height: 6px;
+  background: linear-gradient(90deg,var(--primary-purple),var(--primary-pink));
+  border: 2px solid var(--primary-purple);
+  border-radius: 4px;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px; height: 14px;
+  background: var(--accent-cyan);
+  border: 2px solid #000;
+  border-radius: 2px;
+  margin-top: -6px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #000;
+}
+input[type=range]::-moz-range-track {
+  height: 6px;
+  background: linear-gradient(90deg,var(--primary-purple),var(--primary-pink));
+  border: 2px solid var(--primary-purple);
+  border-radius: 4px;
+}
+input[type=range]::-moz-range-thumb {
+  width: 14px; height: 14px;
+  background: var(--accent-cyan);
+  border: 2px solid #000;
+  border-radius: 2px;
+  cursor: pointer;
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* --- Card System --- */
+.card-pixel {
+  background: var(--background-dark);
+  border: 3px solid var(--primary-purple);
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  height: 100%;
+}

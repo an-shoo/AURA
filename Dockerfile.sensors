@@ -1,0 +1,26 @@
+# Use the same base as the backend for consistency
+FROM python:3.9
+
+WORKDIR /app
+
+# Install system dependencies needed by OpenCV
+RUN apt-get update && apt-get install -y \
+    libgl1 \
+    libglib2.0-0 \
+    portaudio19-dev \
+    libsndfile1-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements from the backend folder
+COPY aura_backend/requirements.txt .
+
+# Install Python dependencies
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Copy the sensor scripts
+COPY sensor_modules/ ./sensor_modules/
+
+# Copy the ML models needed by the speech sensor
+COPY aura_backend/emotion_models/ ./aura_backend/emotion_models/
+
+# The CMD will be provided by docker-compose
